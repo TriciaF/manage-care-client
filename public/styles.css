@@ -1,0 +1,369 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: Verdana;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.login-form {
+    background-color: #70D4B4;
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.login-button,
+.add-med-button,
+.back-to-patient-list-button,
+.submit-medicine-button,
+.submit-add-patient-button,
+.registration-button {
+    /* box-sizing: border-box; */
+    background-color: #AAAAAA;
+    width: auto;
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px;
+    margin: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#firstname,
+#lastname,
+#confirmPassword,
+#patientName,
+#username,
+#password,
+#medName,
+#medDosage,
+#medSchedule,
+#pharmName,
+#pharmAddr,
+#pharmPhone,
+#physicianName,
+#physicianAddr,
+#physicianPhone {
+    margin: 10px;
+    border-radius: 5px;
+    height: 30px;
+    width: 190px;
+}
+
+body:before {
+    background-image: url("https://i.imgur.com/BiokhGd.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: .2;
+}
+
+.tag-line {
+    text-align: center;
+}
+
+.manageCare,
+{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+}
+
+.manage-care-header {
+    padding-top: 60px;
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+#circle {
+    background-color: #F5C8BD;
+    display: table-cell;
+    height: 280px;
+    width: 280px;
+    color: black;
+    opacity: 5;
+    padding: 10px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 50px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 5px #F5C8BD;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30px;
+    font-family: Verdana;
+}
+
+.patient-list-seletion {
+    margin: auto;
+}
+
+.patient-dashboard {
+    margin: auto;
+    padding: 30px;
+}
+
+.dashboard-header {
+    font-size: 20px;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.dashboard-name {
+    position: center;
+    display: inline;
+}
+
+.dashboard-buttons {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.add-medicine-form,
+.add-patient-form,
+.medicine-list,
+.registration-form {
+    background-color: #70D4B4;
+    height: 660px;
+    padding-top: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.patient-list {
+    background-color: #70D4B4;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medicine {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.medication-table {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    flex-wrap: wrap
+}
+
+.medication-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 1px rgb(202, 199, 199);
+    max-width: 350px;
+    margin: 1rem;
+    padding: 20px;
+    line-height: 1.5rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+
+.medication-card-content-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.medication-card-content {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.rem-med-button {
+    width: 60px;
+    height: 35px;
+    margin: 10px 10px 10px 10px;
+    background-color: #AAAAAA;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.rw-widget>.rw-widget-container {
+    width: 40%;
+}
+
+.dropdown_customized {
+    width: 30%;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.nav-bar-top {
+    background-color: #70D4B4;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 40px;
+    font-stretch: extra-expanded;
+}
+
+.nav-bar-bottom-container {
+    margin-top: 40px;
+}
+
+.nav-bar-bottom {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    /* align-content: flex-end; */
+    background-color: #70D4B4;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* height: 370px;
+    width: 100%; */
+}
+
+.nav-bottom-column1,
+.nav-bottom-column2,
+.nav-bottom-column3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px;
+    border: solid 1px rgb(202, 199, 199);
+    background-color: #fff;
+    width: 400px;
+    /* height: 290px; */
+    flex: 0 1 auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-bottom-heading {
+    font-size: 25px;
+    word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    text-decoration: underline;
+    font-weight: 100;
+}
+
+.nav-bottom-list {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 25px;
+    line-height: 1.7rem;
+}
+
+.nav-bottom-info {
+    margin-left: auto;
+    margin-right: auto;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1.7rem;
+}
+
+.nav-words {
+    float: right;
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.nav-words-fda,
+.nav-words-faq {
+    float: left;
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.sub-header-link {
+    color: #0b2a69;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.content-desktop {
+    display: none;
+}
+
+.link-item {
+    margin-top: 15px;
+}
+
+.sub-link {
+    text-transform: none;
+    color: black;
+}
+
+.hidden {
+    display: inline;
+}
+
+@media screen and (max-width: 400px) {
+    .content-desktop {
+        display: block;
+    }
+    .nav-bar-top {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+    .nav-words,
+    .nav-words-faq,
+    .nav-words-fda {
+        padding: 5px;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .login-form {
+        width: 80%;
+    }
+    .medicine-list {
+        height: 100%;
+    }
+    #circle {
+        height: 200px;
+        width: 200px;
+    }
+}
