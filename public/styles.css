@@ -257,7 +257,7 @@ body:before {
     justify-content: space-around;
     border-radius: 5px;
     border: solid 1px rgb(202, 199, 199);
-    /* background-color: #70D4B4; */
+    background-color: #70D4B4;
     color: black;
     width: 400px;
     /* height: 290px; */
