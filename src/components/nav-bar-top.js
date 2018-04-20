@@ -38,7 +38,7 @@ render() {
       )
       addPatient = (
           <div onClick={() => this.addPatient()}>
-            <a className="nav-words" href='#'>
+            <a className="nav-words" href='#patient'>
               Add Patient
             </a>
           </div>
