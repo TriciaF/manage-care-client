@@ -3,7 +3,7 @@ body {
     padding: 0;
     margin: 0;
     height: 100%;
-    font-family: Verdana;
+    font-family: Reem Kufi, sans-serif;
 }
 
 .clearfix:before,
@@ -19,7 +19,7 @@ body {
 }
 
 .login-form {
-    background-color: #70D4B4;
+    background-color: rgb(151, 214, 194);
     text-align: center;
     margin: auto;
     width: 30%;
@@ -33,8 +33,8 @@ body {
 .back-to-patient-list-button,
 .submit-medicine-button,
 .submit-add-patient-button,
-.registration-button {
-    /* box-sizing: border-box; */
+.registration-button,
+.remove-patient-button {
     background-color: #AAAAAA;
     width: auto;
     color: black;
@@ -88,8 +88,7 @@ body:before {
     text-align: center;
 }
 
-.manageCare,
-{
+.manageCare {
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -97,9 +96,8 @@ body:before {
 }
 
 .manage-care-header {
-    padding-top: 60px;
-    padding-right: 60px;
-    padding-left: 60px;
+    margin: 0 auto;
+    width: 300px;
 }
 
 #circle {
@@ -152,15 +150,22 @@ body:before {
 .add-patient-form,
 .medicine-list,
 .registration-form {
-    background-color: #70D4B4;
+    background-color: rgb(151, 214, 194);
     height: 660px;
     padding-top: 15px;
     margin-top: 20px;
     text-align: center;
 }
 
+.add-medicine-form,
+.add-patient-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .patient-list {
-    background-color: #70D4B4;
+    background-color: rgb(151, 214, 194);
     height: 400px;
     display: flex;
     justify-content: center;
@@ -215,17 +220,17 @@ body:before {
 }
 
 .rw-widget>.rw-widget-container {
-    width: 40%;
+    width: 250px;
 }
 
 .dropdown_customized {
-    width: 30%;
+    width: 250px;
     margin: auto;
     vertical-align: middle;
 }
 
 .nav-bar-top {
-    background-color: #70D4B4;
+    background-color: rgb(151, 214, 194);
     width: 100%;
     height: 60px;
     margin-bottom: 40px;
@@ -240,27 +245,16 @@ body:before {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    /* align-items: center; */
-    /* align-content: flex-end; */
-    /* background-color: #70D4B4; */
     padding-top: 20px;
     padding-bottom: 20px;
-    /* height: 370px;
-    width: 100%; */
 }
 
-.nav-bottom-column1,
-.nav-bottom-column2,
-.nav-bottom-column3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.nav-bottom-column {
+    perspective: 1000px;
     border-radius: 5px;
     border: solid 1px rgb(202, 199, 199);
-    background-color: #70D4B4;
     color: black;
     width: 400px;
-    /* height: 290px; */
     flex: 0 1 auto;
     margin-right: 20px;
     margin-left: 20px;
@@ -268,13 +262,50 @@ body:before {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
 }
 
+.nav-bottom-column:hover .flipper,
+.nav-bottom-column:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.nav-bottom-column,
+.nav-bottom-front,
+.nav-bottom-back {
+    width: 380px;
+    height: 380px;
+}
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.nav-bottom-front,
+.nav-bottom-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.nav-bottom-front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+
+/* back, initially hidden pane */
+
+.nav-bottom-back {
+    transform: rotateY(180deg);
+}
+
 .nav-bottom-heading {
-    font-size: 25px;
+    font-size: 27px;
     word-wrap: break-word;
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
-    text-decoration: underline;
     font-weight: 100;
 }
 
@@ -300,8 +331,7 @@ body:before {
     float: right;
     text-align: center;
     padding: 14px 18px;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
     color: black;
 }
 
@@ -310,8 +340,7 @@ body:before {
     float: left;
     text-align: center;
     padding: 14px 18px;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
     color: black;
 }
 
@@ -357,8 +386,11 @@ body:before {
         font-size: 18px;
         margin-top: 10px;
     }
-    .login-form {
+    .login-form,
+    .add-patient-list,
+    .add-medicine-list {
         width: 80%;
+        flex-wrap: wrap;
     }
     .medicine-list {
         height: 100%;
@@ -366,6 +398,9 @@ body:before {
     #circle {
         height: 200px;
         width: 200px;
+    }
+    .submit-add-patient-button {
+        margin: 10px;
     }
 }
 
@@ -388,8 +423,11 @@ body:before {
         font-size: 18px;
         margin-top: 10px;
     }
-    .login-form {
+    .login-form,
+    .add-patient-list,
+    .add-medicine-list {
         width: 80%;
+        flex-wrap: wrap;
     }
     .medicine-list {
         height: 100%;
@@ -397,5 +435,48 @@ body:before {
     #circle {
         height: 200px;
         width: 200px;
+    }
+    .add-patient {
+        min-width: 300px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .content-desktop {
+        display: block;
+    }
+    .nav-bar-top {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+    .nav-words,
+    .nav-words-faq,
+    .nav-words-fda {
+        padding: 5px;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .login-form,
+    .add-patient-list,
+    .add-medicine-list {
+        width: 80%;
+        flex-wrap: no-wrap;
+    }
+    .add-patient {
+        max-width: 300px;
+    }
+    .medicine-list {
+        height: 100%;
+    }
+    #circle {
+        height: 200px;
+        width: 200px;
+    }
+    .add-patient {
+        min-width: 300px;
     }
 }

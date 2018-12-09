@@ -72,10 +72,18 @@ export const removeMedication = (patientDashboard) => ({
     patientDashboard
 });
 
-export const UPDATE_PATEINT = 'UPDATE_PATEINT';
+export const UPDATE_PATIENT = 'UPDATE_PATIENT';
 export const updatePatient = (patientDashboard) => ({
-    type: UPDATE_PATEINT,
+    type: UPDATE_PATIENT,
     patientDashboard
+});
+
+export const REMOVE_PATIENT = 'REMOVE_PATIENT';
+export const removePatient = (currentPatient, showPatientList, showPatientDashboard) => ({
+    type: REMOVE_PATIENT,
+    currentPatient,
+    showPatientList,
+    showPatientDashboard
 });
 
 export const ADD_NEW_PATIENT = 'ADD_NEW_PATIENT';
@@ -173,24 +181,54 @@ export const removeFromDashboard = (values, currentPatient) => dispatch => {
 
 //add new patient
 export const addToPatientList = (values) => dispatch => {
-        dispatch(patientListRequestSent());
-        return fetch(`${API_BASE_URL}/patient`, {
-                method: 'POST',
-                headers: {
-                    'content-Type': 'application/json'
-                },
-                body: JSON.stringify(values)
-            }) //end fetch
-            .then(res => {
-                if (!res.ok) {
-                    return Promise.reject(res.statusText)
-                }
-                return res.json();
-            })
-            .then(({patientSuccess}) => dispatch(updatePatientSuccess()))
-            .then(({patientData}) => dispatch(getPatientList()))
-            .then(({patientList}) => dispatch(showPatientDashboard()))
-            .catch(err => {
-                dispatch(getPatientListError(err));
-            });
+    dispatch(patientListRequestSent());
+    return fetch(`${API_BASE_URL}/patient`, {
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json'
+            },
+            body: JSON.stringify(values)
+        }) //end fetch
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText)
+            }
+            return res.json();
+        })
+        .then(({patientSuccess}) => dispatch(updatePatientSuccess()))
+        .then(({patientData}) => dispatch(getPatientList()))
+        .then(({patientList}) => dispatch(showPatientDashboard()))
+        .catch(err => {
+            dispatch(getPatientListError(err));
+        });
     } //end updatePatient
+
+export const removePatientFromList = (currentPatient, patientList) => dispatch => {
+    dispatch(removePatient(currentPatient));
+    let id;
+    patientList.forEach( patient => {
+        if(patient.name === currentPatient) {
+            id = patient.id
+        }
+    })
+    console.log('patient id = ', id);
+    dispatch(patientListRequestSent());
+    return fetch(`${API_BASE_URL}/patient/` + id, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        },
+    }) //end fetch
+    .then( res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText)
+        }
+        return res.json();
+    })
+    .then(({patientSuccess}) => dispatch(updatePatientSuccess()))
+    .then(({patientData}) => dispatch(getPatientList()))
+    .then(({patientList}) => dispatch(showPatientDashboard()))
+    .catch(err => {
+        dispatch(getPatientListError(err));
+    });
+}

@@ -29,6 +29,8 @@ console.log('Enter PatientForm')
               this.onSubmit(values)
           )}>
             {error}
+            <div className='add-patient'>
+            <span className='medicine'>Patient Information:</span>
             <Field
                 component={Input}
                 type="text"
@@ -37,6 +39,9 @@ console.log('Enter PatientForm')
                 placeholder="patient name"
                 validate={[required, nonEmpty]}
             />
+            </div>
+            <div className='add-patient'>
+            <span className='medicine'>Medication:</span>
             <Field
                 component={Input}
                 type="medication"
@@ -59,6 +64,9 @@ console.log('Enter PatientForm')
                 id="medSchedule"
                 placeholder="schedule"
             />
+            </div>
+            <div className='add-patient'>
+            <span className='medicine'>Pharmacy:</span>
             <Field
                 component={Input}
                 type="pharmacyName"
@@ -80,6 +88,9 @@ console.log('Enter PatientForm')
                 id="pharmPhone"
                 placeholder="pharmacy phone number"
             />
+            </div>
+            <div className='add-patient'>
+            <span className='medicine'>Physician:</span>
             <Field
                 component={Input}
                 type="physicianName"
@@ -101,9 +112,12 @@ console.log('Enter PatientForm')
                 id="physicianPhone"
                 placeholder="physician's phone number"
             />
+            </div>
+            <div className='medicine'>
             <button className='submit-add-patient-button' disabled={this.props.pristine || this.props.submitting}>
                 Submit
             </button>
+            </div>
         </form>
     );
 }

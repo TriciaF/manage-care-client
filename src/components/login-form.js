@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import Input from './login-input';
+import LoginInput from './login-input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 
@@ -28,7 +28,7 @@ export class LoginForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                 {error}
                 <Field
-                    component={Input}
+                    component={LoginInput}
                     type="text"
                     name="username"
                     id="username"
@@ -36,7 +36,7 @@ export class LoginForm extends React.Component {
                     validate={[required, nonEmpty]}
                 />
                 <Field
-                    component={Input}
+                    component={LoginInput}
                     type="password"
                     name="password"
                     id="password"

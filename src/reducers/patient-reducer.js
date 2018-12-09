@@ -5,8 +5,10 @@ import {
     SHOW_PATIENT_DASHBOARD,
     SET_PATIENT_DASHBOARD,
     GET_PATIENT_DASHBOARD,
+    UPDATE_PATIENT,
     UPDATE_PATIENT_SUCCESS,
     UPDATE_PATIENT_ERROR,
+    REMOVE_PATIENT,
     ADD_MEDICATION,
     REMOVE_MEDICATION,
     SHOW_ADD_MEDS_FORM,
@@ -65,6 +67,11 @@ export default function reducer(state = initialState, action) {
       });
     } else if (action.type === GET_PATIENT_DASHBOARD) {
         return state.patientDashboard
+    
+    } else if (action.type === UPDATE_PATIENT) {
+        return Object.assign({}, state, {
+            error: false,
+        });
 
     } else if (action.type === UPDATE_PATIENT_SUCCESS) {
         return Object.assign({}, state, {
@@ -87,6 +94,16 @@ export default function reducer(state = initialState, action) {
           showPatientList: true,
           showPatientDashboard: false,
         });
+    } else if (action.type === REMOVE_PATIENT) {
+        console.log('enter remove patient = ', action);
+        return Object.assign({}, state, {
+            showPatientDashboard: false,
+            showPatientList: true,
+            patientList: state.patientList.filter( patient => {
+                console.log('patient = ', patient);
+                return patient.name !== action.currentPatient
+            })
+        })
     } else if (action.type === ADD_MEDICATION) {
         return Object.assign({}, state, {
             addMedication: true,
