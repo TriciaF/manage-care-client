@@ -66,7 +66,7 @@ export const login = (username, password) => (dispatch, getState) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${authToken}`
+                'Authorization': `Bearer ${authToken}`
             },
             body: JSON.stringify({
                 username,
